@@ -31,14 +31,14 @@ jobs:
           pip install aws-sam-cli
 
       - name: Build SAM
-        run: sam build --use-container -t template-dev.yml
+        run: sam build --use-container -t template.yml
 
       - name: Deploy SAM
         run: |
           sam deploy \
           --no-confirm-changeset \
           --no-fail-on-empty-changeset \
-          --stack-name doc-query-rag \
+          --config-file samconfig.toml \
           --parameter-overrides \
           LangsmithTracing=${{ secrets.LANGSMITH_TRACING }} \
           LangsmithApiKey=${{ secrets.LANGSMITH_API_KEY }} \
