@@ -50,5 +50,3 @@ jobs:
           ParameterKey=CohereApiKey,ParameterValue=${{ secrets.COHERE_API_KEY }} \
           ParameterKey=BM25EncoderFile,ParameterValue=${{ secrets.BM25_ENCODER_FILE }} \
           ParameterKey=S3BucketName,ParameterValue=${{ secrets.S3_BUCKET_NAME }} \
-          ParameterKey=AwsAccessKeyId,ParameterValue=${{ secrets.AWS_ACCESS_KEY_ID }} \
-          ParameterKey=AwsSecretAccessKey,ParameterValue=${{ secrets.AWS_SECRET_ACCESS_KEY }}

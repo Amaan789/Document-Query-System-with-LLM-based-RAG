@@ -9,8 +9,6 @@ BM25_ENCODER_FILE = os.environ.get("BM25_ENCODER_FILE")
 
 s3_client = boto3.client(
     "s3",
-    aws_access_key_id=os.environ.get("AWS_ACCCESS_KEY_ID"),
-    aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESSS_KEY"),
     region_name="us-east-1"
 )
 

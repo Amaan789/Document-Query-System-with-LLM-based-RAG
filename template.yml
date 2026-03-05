@@ -28,10 +28,6 @@ Parameters:
     Type: String
   S3BucketName:
     Type: String
-  AwsAccessKeyId:
-    Type: String
-  AwsSecretAccessKey:
-    Type: String
 
 Resources:
   SahlaiServicesBackend:
@@ -51,8 +47,6 @@ Resources:
           COHERE_API_KEY: !Ref CohereApiKey
           BM25_ENCODER_FILE: !Ref BM25EncoderFile
           S3_BUCKET_NAME: !Ref S3BucketName
-          AWS_ACCESS_KEY_ID: !Ref AwsAccessKeyId
-          AWS_SECRET_ACCESS_KEY: !Ref AwsSecretAccessKey
     Metadata:
       Dockerfile: Dockerfile
       DockerContext: .
