@@ -1,0 +1,16 @@
+langchain-community
+pypdf
+langchain-text-splitters
+langchain-cohere
+faiss-cpu
+langchain-groq
+streamlit
+python-dotenv
+pinecone
+rank_bm25
+pinecone-text
+fastapi[standard]
+cohere
+uvicorn
+nltk
+boto3

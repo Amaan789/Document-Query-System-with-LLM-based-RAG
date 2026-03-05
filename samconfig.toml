@@ -1,0 +1,13 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "doc-query-rag-1"
+resolve_s3 = true
+s3_prefix = "doc-query-rag-1"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["SahlaiServicesBackend=815210276228.dkr.ecr.us-east-1.amazonaws.com/docqueryrag169ed4894/sahlaiservicesbackend360bdc41repo"]
+
+[default.global.parameters]
+region = "us-east-1"

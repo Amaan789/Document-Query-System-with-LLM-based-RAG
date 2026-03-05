@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Document Query System with LLM-based RAG
+
+Globals:
+  Function:
+    Timeout: 900
+    MemorySize: 3000
+    Tracing: Active
+
+Parameters:
+  LangsmithTracing:
+    Type: String
+  LangsmithApiKey:
+    Type: String
+  LangsmithProject:
+    Type: String
+  GroqApiKey:
+    Type: String
+  PineconeApiKey:
+    Type: String
+  PineconeIndex:
+    Type: String
+  CohereApiKey:
+    Type: String
+  BM25EncoderFile:
+    Type: String
+  S3BucketName:
+    Type: String
+  AwsAccessKeyId:
+    Type: String
+  AwsSecretAccessKey:
+    Type: String
+
+Resources:
+  SahlaiServicesBackend:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          LANGSMITH_TRACING: !Ref LangsmithTracing
+          LANGSMITH_API_KEY: !Ref LangsmithApiKey
+          LANGSMITH_PROJECT: !Ref LangsmithProject
+          GROQ_API_KEY: !Ref GroqApiKey
+          PINECONE_API_KEY: !Ref PineconeApiKey
+          PINECONE_INDEX: !Ref PineconeIndex
+          COHERE_API_KEY: !Ref CohereApiKey
+          BM25_ENCODER_FILE: !Ref BM25EncoderFile
+          S3_BUCKET_NAME: !Ref S3BucketName
+          AWS_ACCESS_KEY_ID: !Ref AwsAccessKeyId
+          AWS_SECRET_ACCESS_KEY: !Ref AwsSecretAccessKey
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: .
+      DockerTag: production_rag
