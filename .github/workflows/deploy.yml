@@ -38,16 +38,17 @@ jobs:
           sam deploy \
           --no-confirm-changeset \
           --no-fail-on-empty-changeset \
+          --capabilities CAPABILITY_IAM \
           --config-file samconfig.toml \
           --parameter-overrides \
-          LangsmithTracing=${{ secrets.LANGSMITH_TRACING }} \
-          LangsmithApiKey=${{ secrets.LANGSMITH_API_KEY }} \
-          LangsmithProject=${{ secrets.LANGSMITH_PROJECT }} \
-          GroqApiKey=${{ secrets.GROQ_API_KEY }} \
-          PineconeApiKey=${{ secrets.PINECONE_API_KEY }} \
-          PineconeIndex=${{ secrets.PINECONE_INDEX }} \
-          CohereApiKey=${{ secrets.COHERE_API_KEY }} \
-          BM25EncoderFile=${{ secrets.BM25_ENCODER_FILE }} \
-          S3BucketName=${{ secrets.S3_BUCKET_NAME }} \
-          AwsAccessKeyId=${{ secrets.AWS_ACCESS_KEY_ID }} \
-          AwsSecretAccessKey=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          ParameterKey=LangsmithTracing,ParameterValue=${{ secrets.LANGSMITH_TRACING }} \
+          ParameterKey=LangsmithApiKey,ParameterValue=${{ secrets.LANGSMITH_API_KEY }} \
+          ParameterKey=LangsmithProject,ParameterValue=${{ secrets.LANGSMITH_PROJECT }} \
+          ParameterKey=GroqApiKey,ParameterValue=${{ secrets.GROQ_API_KEY }} \
+          ParameterKey=PineconeApiKey,ParameterValue=${{ secrets.PINECONE_API_KEY }} \
+          ParameterKey=PineconeIndex,ParameterValue=${{ secrets.PINECONE_INDEX }} \
+          ParameterKey=CohereApiKey,ParameterValue=${{ secrets.COHERE_API_KEY }} \
+          ParameterKey=BM25EncoderFile,ParameterValue=${{ secrets.BM25_ENCODER_FILE }} \
+          ParameterKey=S3BucketName,ParameterValue=${{ secrets.S3_BUCKET_NAME }} \
+          ParameterKey=AwsAccessKeyId,ParameterValue=${{ secrets.AWS_ACCESS_KEY_ID }} \
+          ParameterKey=AwsSecretAccessKey,ParameterValue=${{ secrets.AWS_SECRET_ACCESS_KEY }}
