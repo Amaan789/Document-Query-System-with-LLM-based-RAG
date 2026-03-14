@@ -5,6 +5,7 @@ from langchain_groq import ChatGroq
 from pinecone_text.sparse import BM25Encoder
 from langchain_cohere import CohereEmbeddings
 from langchain_core.output_parsers import StrOutputParser
+from config import settings
 
 
 
@@ -14,13 +15,14 @@ cohere_client = create_cohere_client()
 
 
 bm25_encoder = BM25Encoder()
-embeddings = CohereEmbeddings(model="embed-english-v3.0")
+embeddings = CohereEmbeddings(model="embed-english-v3.0", cohere_api_key=settings.COHERE_API_KEY)
 
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
     streaming=True,
     temperature=0.3,
-    max_tokens=1024
+    max_tokens=1024,
+    api_key = settings.GROQ_API_KEY
 )
 
 parser = StrOutputParser()

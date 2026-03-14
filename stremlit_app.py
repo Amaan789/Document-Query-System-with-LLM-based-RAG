@@ -51,7 +51,7 @@ def stream_data(prompt):
     }
 
     response = requests.post(
-        AWS_URL + "/chat",
+        settings.AWS_URL + "/chat",
         json=payload,
         stream=True
     )

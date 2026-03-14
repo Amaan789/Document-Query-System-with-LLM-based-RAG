@@ -14,3 +14,4 @@ cohere
 uvicorn
 nltk
 boto3
+ragas
