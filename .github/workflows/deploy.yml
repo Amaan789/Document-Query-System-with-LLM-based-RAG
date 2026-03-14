@@ -34,7 +34,7 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
           LOCAL_BM25_PATH: ${{ secrets.LOCAL_BM25_PATH }}
         run: |
-          python scripts/run_rag_eval.py
+          python run_rag_eval.py
 
 
       - name: Configure AWS credentials
