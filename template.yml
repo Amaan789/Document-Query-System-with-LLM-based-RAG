@@ -30,6 +30,8 @@ Parameters:
     Type: String
   RagDeployRole:
     Type: String
+  LocalBm25Path:
+    Type: String
 
 Resources:
   RagServicesBackend:
@@ -50,6 +52,7 @@ Resources:
           COHERE_API_KEY: !Ref CohereApiKey
           BM25_ENCODER_FILE: !Ref BM25EncoderFile
           S3_BUCKET_NAME: !Ref S3BucketName
+          LOCAL_BM25_PATH: !Ref LocalBm25Path
     Metadata:
       Dockerfile: Dockerfile
       DockerContext: .

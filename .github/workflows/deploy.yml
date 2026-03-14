@@ -51,3 +51,4 @@ jobs:
           ParameterKey=BM25EncoderFile,ParameterValue=${{ secrets.BM25_ENCODER_FILE }} \
           ParameterKey=S3BucketName,ParameterValue=${{ secrets.S3_BUCKET_NAME }} \
           ParameterKey=RagDeployRole,ParameterValue=${{ secrets.RAG_DEPLOY_ROLE }} \
+          ParameterKey=LocalBm25Path,ParameterValue=${{ secrets.LOCAL_BM25_PATH }} \

@@ -1,13 +1,13 @@
 version = 0.1
 
 [default.deploy.parameters]
-stack_name = "doc-query-rag-1"
+stack_name = "Production-RAG"
 resolve_s3 = true
-s3_prefix = "doc-query-rag-1"
+s3_prefix = "Production-RAG"
 region = "us-east-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
-image_repositories = ["SahlaiServicesBackend=815210276228.dkr.ecr.us-east-1.amazonaws.com/docqueryrag169ed4894/sahlaiservicesbackend360bdc41repo"]
+image_repositories = ["RagServicesBackend=815210276228.dkr.ecr.us-east-1.amazonaws.com/productionrag038e1a91/ragservicesbackend0e70dcbcrepo"]
 
 [default.global.parameters]
 region = "us-east-1"
