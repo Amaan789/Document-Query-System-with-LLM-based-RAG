@@ -26,12 +26,18 @@ jobs:
 
       - name: Run RAG evaluation
         env:
+          LANGSMITH_TRACING: ${{ secrets.LANGSMITH_TRACING }}
+          LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+          LANGSMITH_PROJECT: ${{ secrets.LANGSMITH_PROJECT }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+          PINECONE_INDEX: ${{ secrets.PINECONE_INDEX }}
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          BM25_ENCODER_FILE: ${{ secrets.BM25_ENCODER_FILE }}
+          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+          AWS_URL: ${{ secrets.AWS_URL }}
           LOCAL_BM25_PATH: ${{ secrets.LOCAL_BM25_PATH }}
         run: |
           python run_rag_eval.py
