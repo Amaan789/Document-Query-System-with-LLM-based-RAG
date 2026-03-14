@@ -1,11 +1,7 @@
 import streamlit as st
 import requests
 import os 
-from dotenv import load_dotenv
-load_dotenv()
-
-
-AWS_URL = os.environ.get("AWS_URL")
+from config import settings
 
 
 st.set_page_config(
@@ -27,7 +23,7 @@ with st.sidebar:
     if st.button("🔄 Update Vector Store"):
         with st.spinner("Updating vector store..."):
             try:
-                res = requests.get(AWS_URL + "/vectore_update")
+                res = requests.get(settings.AWS_URL + "/vectore_update")
 
                 if res.status_code == 200:
                     st.success("Vector store updated successfully!")

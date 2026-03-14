@@ -23,7 +23,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::815210276228:role/Git-Action
+          role-to-assume: secrets.GIT_ACTION_ROLE
           aws-region: us-east-1
 
       - name: Install SAM
@@ -50,3 +50,4 @@ jobs:
           ParameterKey=CohereApiKey,ParameterValue=${{ secrets.COHERE_API_KEY }} \
           ParameterKey=BM25EncoderFile,ParameterValue=${{ secrets.BM25_ENCODER_FILE }} \
           ParameterKey=S3BucketName,ParameterValue=${{ secrets.S3_BUCKET_NAME }} \
+          ParameterKey=RagDeployRole,ParameterValue=${{ secrets.RAG_DEPLOY_ROLE }} \

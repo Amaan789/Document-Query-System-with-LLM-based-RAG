@@ -28,14 +28,17 @@ Parameters:
     Type: String
   S3BucketName:
     Type: String
+  RagDeployRole:
+    Type: String
 
 Resources:
-  SahlaiServicesBackend:
+  RagServicesBackend:
     Type: AWS::Serverless::Function
     Properties:
       PackageType: Image
       Architectures:
         - x86_64
+      Role: !Ref RagDeployRole
       Environment:
         Variables:
           LANGSMITH_TRACING: !Ref LangsmithTracing
